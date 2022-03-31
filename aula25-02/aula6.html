@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>valber</h1>
+    <!-- placeholder coloca o texto temporario, auto focus é o q o nome diz-->
+    <input id="kaarlos" placeholder="Entre com o seu nome" type="text" autofocus><span id="teste"></span>
+    <br><button onclick="mostrar()">aperta ai se tu é home</button>
+    <br><button onclick="teste()">teste</button>
+    <div id="rgoe"></div>
+</body>
+
+</html>
+<!--to sendo bobão só e tetando mexer com if else antes da hora-->
+<script>
+    function mostrar() {
+        if (kaarlos.value == '') {
+            alert("tem que escrever o bobão");
+        } else {
+            alert("O seu nome é: " + kaarlos.value);
+        }
+    }
+    function teste() {
+        rgoe.innerHTML = "<input id='w' placeholder='foda né'>";
+    }
+</script>

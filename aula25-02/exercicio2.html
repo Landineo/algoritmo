@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>valber</h1>
+
+    <p>Coloque sua Nota:
+        <br><input id="kaarlos" placeholder="Nota" type="text" autofocus></p>
+
+        <button onclick="mostrarmae()">opinião da mãe</button>
+        <button onclick="mostrarvo()">opinião da vó</button>
+
+    <div id="maarcos"></div>
+</body>
+
+</html>
+<script>
+    function mostrarmae() {
+        maarcos.innerHTML = `Não fez mais do que a obrigação com essa nota <i style="color: blue"><b>${kaarlos.value}</b></i>`;
+    }
+    function mostrarvo() {
+        maarcos.innerHTML = `Muito bem, que neto inteligente, por que tirou <i style="color: blue"><b>${kaarlos.value}</b></i>`;
+    }
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>valber</h1>
+
+    <p>Coloque sua Cidade Natal:
+        <br><input id="kaarlos" placeholder="Cidade Natal" type="text" autofocus>
+    </p>
+
+    <p>Coloque seu Ano de Nascimento:
+        <br><input id="renataIngrataSapataSensata" placeholder="Ano de Nascimento" type="text">
+    </p>
+
+    <button onclick="mostrar()">Cadastrar</button>
+
+    <div id="maarcos"></div>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        if (renataIngrataSapataSensata.value && kaarlos.value != '') {
+            maarcos.innerHTML = "Você nasceu na cidade de <b>" + kaarlos.value + 
+            "</b> no ano de <u>" + renataIngrataSapataSensata.value + "</u>."
+        } else {
+            alert("tem que escrever o bobão")
+        }
+    }
+</script>

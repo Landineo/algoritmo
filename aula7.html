@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        <select id="qualCidade">
+            <option value="0">--selecione uma opção--</option>
+            <option value="1">SP - Capital</option>
+            <option value="2">SP - Interior</option>
+            <option value="3">Outros Estados</option>
+        </select>
+    </p>
+    <p><button onclick="mostrar()">Falar do Local</button></p>
+    <p id="tela"></p>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        var opcao = qualCidade.value
+        if (opcao == 0) {
+            alert(`Escolha uma opção`)
+            tela.innerHTML = ``
+        } if (opcao == 1) {
+            tela.innerHTML = `<img src="https://www.achetudoeregiao.com.br/sp/sao_paulo/gifs/sao_paulo.jpg" style="height: 100px;"> <br>
+                            <h2>Aqueles que moram nessa cidade são Paulistanos.</h2>`
+        } if (opcao == 2) {
+            tela.innerHTML = `<img src="https://www.guiadoturista.net/imgs/2018/09/ecd313b2919eb6899a533e466e35feba.jpg" style="height: 100px;"> <br>
+                            <h2>Aqueles que moram nesse estão são Paulistas.</h2>`
+        } if (opcao == 3) {
+            tela.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Fortaleza%2C_Brazil_%284%29_%28cropped%29.jpg" style="height: 100px;"> <br>
+                            <h2>Aqueles que moram nessa cidade não são Paulistas e nem Paulistanos.</h2>`
+        }
+    }
+</script>

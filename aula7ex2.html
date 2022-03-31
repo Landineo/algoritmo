@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercicio 2</title>
+</head>
+<body>
+    <p>insira o nome <input type="text" id="nomealuno"></p>
+    <p>insira a idade<input type="text" id="idadealuno"></p>
+    <p><button onclick="mostrar()">Cadastrar</button></p>
+    <p id="tela"></p>
+</body>
+</html>
+<script>
+    function mostrar() {
+        var nome = nomealuno.value;
+        var idade = Number(idadealuno.value);
+        if (nomealuno.value == ``) {
+            tela.innerHTML += `Nome inválido<br>`
+        } if (idade < 0 || idade == ``) {
+            tela.innerHTML += `Idade inválida<br>`
+        } if (nome != `` && idade != `` && idade < 18 && idade > 0) {
+            alert (`Olá ${nome}, você deve aguardar ${18 - idade} anos para tirar a CNH`)
+        } if (idade >= 80) {
+            tela.innerHTML = `Procurar escola especial`
+        } if (idade >= 18 && idade < 80) {
+            tela.innerHTML = `Olá ${nome}, vamos tirar a CNH?`
+        }
+    }
+</script>
