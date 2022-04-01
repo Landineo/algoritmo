@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+
+<body>
+    <p>Coloque sua altura em metros: <input type="text" placeholder="ex: 1.80" id="vlrAltura"></p>
+    <p><button onclick="mostrar()">Analisar</button></p>
+    <p id="tela"></p>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        var altura = vlrAltura.value;
+        if (altura <= 1.30) {
+            alert (`Você é uma criança?`)
+        } else {
+            if (altura <= 1.65) {
+                tela.innerHTML = `Você pode ser um piloto de corrida!`
+            } else {
+                if (altura <= 1.8) {
+                    tela.innerHTML = `Você pode ser um jogador de futebol!`
+                } else {
+                    if (altura > 1.8) {
+                        tela.innerHTML = `Você pode ser um jogador de vôlei ou até basquete!`
+                    }
+                }
+            }
+        }
+    }
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+    <p>Insira seu nome: <br>
+        <input type="text" id="nomeClient">
+    </p>
+    <p>Insira seu saldo:
+        <input type="text" id="saldoClient">
+    </p>
+    <p>
+        <button onclick="mostrar()">Verificar conta</button>
+    </p>
+    <p id="tela"></p>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        var nome = nomeClient.value;
+        var saldo = Number(saldoClient.value);
+        if (saldo < 0) {
+            tela.innerHTML = `Com o saldo de ${saldo.toFixed(2)} o cliente ${nome} está com saldo devedor`
+        } else {
+            if (saldo <= 2000) {
+                tela.innerHTML = `Com o saldo de ${saldo.toFixed(2)} o cliente ${nome} está com saldo NORMAL`
+            } else {
+                if (saldo <= 5000) {
+                    tela.innerHTML = `Com o saldo de ${saldo.toFixed(2)} o cliente ${nome} está com saldo ACIMDA DA MÉDIA`
+                } else {
+                    if (saldo > 5000) {
+                        tela.innerHTML = `Com o saldo de ${saldo.toFixed(2)} o cliente ${nome} TEM PERFIL DE INVESTIDOR`
+                    }
+                }
+            }
+        }
+    }
+</script>

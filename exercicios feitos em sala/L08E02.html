@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+
+<body>
+    <p>Insira sua renda familiar<input type="text" id="rendaFamilia" placeholder="Ex: 9500.00"></p>
+    <p><button onclick="mostrar()">Analisar renda</button></p>
+    <p id="tela"></p>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        var renda = rendaFamilia.value;
+        if (renda < 0) {
+            alert("Coloque um valor real")
+        } else {
+            if (renda <= 9500) {
+                tela.innerHTML = `Sua classe é B`
+                if (renda <= 2500) {
+                    tela.innerHTML = `Sua classe é C`
+                    if (renda <= 900) {
+                        tela.innerHTML = `Sua classe é D`
+                        if (renda <= 250) {
+                            tela.innerHTML = `Sua classe é E`
+                        }
+                    }
+                }
+            } else {
+                tela.innerHTML = `Sua classe é A`
+            }
+        }
+    }
+</script>
+
+
