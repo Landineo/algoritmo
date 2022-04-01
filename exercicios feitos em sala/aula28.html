@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <select name="Mercearia" id="merc">
+            <option value="15.49">Café</option>
+            <option value="4.99">Manteiga</option>
+            <option value="3.80">Caixa de leite</option>
+            <option value="39.99/Kg">Queijo Mussarela</option>
+        </select>
+    </p>
+    <p><button onclick="mostrar()">Ver preço</button></p>
+</body>
+</html>
+<script>
+    function mostrar() {
+        alert(`Isso custa R$${merc.value}`);
+    }
+</script>

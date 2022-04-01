@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+
+<body>
+    <p>Coloque seu endereço: (Rua, Avenida, Travessa...)<br>
+    <input placeholder="Endereço (Rua, Avenida, Travessa e etc...)" id="viktor"> <input placeholder="Número" id="janna">
+    </p>
+    <button onclick="mostrar()">Onde eu moro?</button>
+    <div id="renata"></div>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        renata.innerHTML = "Seu logradouro é " + viktor.value;
+        renata.innerHTML += "<br>o número do seu logradouro é " + janna.value
+    }
+</script>

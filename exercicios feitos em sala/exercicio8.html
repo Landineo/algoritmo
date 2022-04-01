@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio8</title>
+</head>
+<body>
+<p>Insira a quantidade de filhos abaixo dos 10 anos: <br><input type="text" id="qtdfilho10"></p>
+<p>Insira a quantidade de filhos abaixo dos 10 anos: <br><input type="text" id="qtdfilho11"></p>
+<p><button onclick="mostrar()">Calcular auxilio filho</button></p>
+<p id="tela"></p>
+</body>
+</html>
+<script>
+function mostrar() {
+    tela.innerHTML = `Você tem ${qtdfilho10.value} filhos menores de 10 anos e ${qtdfilho11.value} filhos a partir de 10 anos, logo, seu "Auxílio Filhos" será de R$${(Number(qtdfilho11.value*20)+Number(qtdfilho10.value*30)).toFixed(2)} `
+}
+</script>

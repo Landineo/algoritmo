@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 22</title>
+</head>
+<body>
+    <p id="pc">
+        Votos na Praça é Nossa: 0<br>
+        Votos no Zorra Total: 0<br>
+        Total de Votos: 0
+    </p>
+    <p><button onclick="pracan()">Votar na Praça é Nossa</button></p>
+    <p><button onclick="zorrat()">Votar na Zorra Total</button></p>
+</body>
+</html>
+<script>
+    var pcns = 0;
+    var zrtt = 0;
+    var totalvt = 0;
+    function pracan() {
+        pcns++
+        totalvt++
+        pc.innerHTML = `
+        Votos na Praça é Nossa: ${pcns}<br>
+        Votos no Zorra Total: ${zrtt}<br>
+        Total de Votos: ${totalvt}`
+    }
+    function zorrat() {
+        zrtt++
+        totalvt++
+        pc.innerHTML = `
+        Votos na Praça é Nossa: ${pcns}<br>
+        Votos no Zorra Total: ${zrtt}<br>
+        Total de Votos: ${totalvt}`
+    }
+</script>

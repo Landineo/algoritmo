@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Tabuada</h3>
+    <p>Selecione o número:
+        <select name="" id="tabuada" onchange="mostrar()">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
+    </p>
+    <p id="tela"></p>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        tela.innerHTML =
+            `${tabuada.value} x 1 = ${tabuada.value * 1}<br>
+            ${tabuada.value} x 2 = ${tabuada.value * 2}<br>
+            ${tabuada.value} x 3 = ${tabuada.value * 3}<br>
+            ${tabuada.value} x 4 = ${tabuada.value * 4}<br>
+            ${tabuada.value} x 5 = ${tabuada.value * 5}<br>
+            ${tabuada.value} x 6 = ${tabuada.value * 6}<br>
+            ${tabuada.value} x 7 = ${tabuada.value * 7}<br>
+            ${tabuada.value} x 8 = ${tabuada.value * 8}<br>
+            ${tabuada.value} x 9 = ${tabuada.value * 9}`
+    }
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body><p>
+    Quantos amigos dividirão o pagamento?<br>
+    <input type="text" placeholder="Quantos amigos?" id="amigos"></p>
+    <p>Qual o valor da pizza?<br>
+    <input type="text" placeholder="Valor da pizza?" id="pizza"></p>
+    <button onclick="mostrar()">#lovePizza</button>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        alert(`Cada um dos amigos ${amigos.value} vai pagar R$${pizza.value/amigos.value}`)
+    }
+</script>

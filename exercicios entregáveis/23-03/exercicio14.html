@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+</head>
+
+<body>
+    <p>Selecione o sabor da pizza: <br>
+        <select id="sabor">
+            <option value="">Selecione uma pizza</option>
+            <option value="23">Muçarela à R$ 23,00</option>
+            <option value="24">Calabresa à R$ 24,00</option>
+            <option value="26">Atum à R$ 26,00 </option>
+            <option value="30">Portuguesa à R$ 30,00</option>
+        </select>
+    </p>
+    <p>Selecione o sabor do primeiro ingrediente extra: <br>
+        <select id="ingrediente">
+            <option value="0">Sem ingrediente extra</option>
+            <option value="2">Queijo à R$ 2,00</option>
+            <option value="2.5">Presunto à R$ 2,50</option>
+            <option value="1.5">Ovo à R$ 1,50</option>
+            <option value="4">Palmito à R$ 4,00</option>
+            <option value="3.5">Frango à R$ 3,50</option>
+            <option value="3">Catupiry à R$ 3,00</option>
+        </select>
+    </p><p>Selecione o sabor do segundo ingrediente extra: <br>
+        <select id="ingrediente2">
+            <option value="0">Sem ingrediente extra</option>
+            <option value="2">Queijo à R$ 2,00</option>
+            <option value="2.5">Presunto à R$ 2,50</option>
+            <option value="1.5">Ovo à R$ 1,50</option>
+            <option value="4">Palmito à R$ 4,00</option>
+            <option value="3.5">Frango à R$ 3,50</option>
+            <option value="3">Catupiry à R$ 3,00</option>
+        </select>
+    </p><p>Selecione o sabor do terceiro ingrediente extra: <br>
+        <select id="ingrediente3">
+            <option value="0">Sem ingrediente extra</option>
+            <option value="2">Queijo à R$ 2,00</option>
+            <option value="2.5">Presunto à R$ 2,50</option>
+            <option value="1.5">Ovo à R$ 1,50</option>
+            <option value="4">Palmito à R$ 4,00</option>
+            <option value="3.5">Frango à R$ 3,50</option>
+            <option value="3">Catupiry à R$ 3,00</option>
+        </select>
+    </p>
+    <p><button onclick="mostrar()">Calcular preço da pizza</button></p>
+    <p id="tela"></p>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        var pizza = Number(sabor.value) + Number(ingrediente.value) + Number(ingrediente2.value) + Number(ingrediente3.value)
+        tela.innerHTML=`A pizza era R$ ${Number(sabor.value).toFixed(2)}, mas foi acrescido R$ ${Number(ingrediente.value).toFixed(2)},  R$ ${Number(ingrediente2.value).toFixed(2)} e R$ ${Number(ingrediente3.value).toFixed(2)} custará um total de R$ ${pizza.toFixed(2)}`
+    }
+</script>

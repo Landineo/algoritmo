@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+
+<body>
+    <p>Insira sua altura (metro e cm):
+    <input type="text" id="Altura" placeholder="Altura"></p>
+    <p>Insira seu peso (kg):
+    <input type="text" id="Peso" placeholder="Peso"></p>
+    <p><button onclick="imch()">IMC Homem</button></p>
+    <p><button onclick="imcm()">IMC Mulher</button></p>
+    <p id="calc"></p>
+</body>
+</html>
+<script>
+    function imch() {
+        calc.innerHTML=`Seu IMC é ${Peso.value/(Altura.value*Altura.value)} kg/m²`
+    }
+    function imcm() {
+        calc.innerHTML=`Seu IMC é ${(Peso.value/(Altura.value*Altura.value))*0.9} kg/m²`
+    }
+</script>

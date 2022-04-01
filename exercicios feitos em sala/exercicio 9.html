@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+
+<body>
+    <img src="https://thumbs.dreamstime.com/b/mão-vazia-59969140.jpg" style="height: 200px">
+    <p>Quanto dinheiro terá em 6 meses:
+        <br><input id="Rakan" placeholder="Dinheiro em 6 meses" autofocus>
+    </p>
+    <p>Quanto dinheiro terá em 3 anos:
+        <br><input id="blitzcrank" placeholder="Dinheiro em 3 anos">
+    </p>
+    <button onclick="mostrar()">Como estarei no futuro?</button>
+    <div id="thresh"></div>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        thresh.innerHTML = "Daqui a 6 meses estará com R$" + Rakan.value + ",00 <br> <img style='height: 200px' src='https://www.designi.com.br/images/preview/10028841.jpg'>";
+        thresh.innerHTML += "<br>Daqui a 3 anos estará com R$" + blitzcrank.value + ",00 <br><img style='height: 200px' src='https://img.freepik.com/fotos-gratis/mao-recebendo-dinheiro-dolares-americanos-rico-em-sucesso-transferencia-de-dinheiro-de-mao-em-mao-homem-de-camisa-branca-segurando-dolares-notas-de-dolares-americanos_85672-2078.jpg'>";
+    }
+</script>

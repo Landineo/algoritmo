@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 08</title>
+</head>
+
+<body>
+    <div>Insira a quantidade de homens: <br>
+        <input type="text" placeholder="Ex: 4" id="qtdhomem" autofocus> <br> <br>
+        Insira a quantidade de mulheres: <br>
+        <input type="text" placeholder="Ex: 5" id="qtdmulher">
+    </div>
+    <div>
+        <button onclick="mostrar()">Ligar elevador</button>
+    </div>
+    <p id="tela"></p>
+</body>
+</html>
+<script>
+    function mostrar() {
+        peso = (Number(qtdhomem.value) * 90) + (Number(qtdmulher.value) * 70);
+        if (peso <= 500) {
+            tela.innerHTML = `<span style="color: green">O elevador vai se mover, pois está com ${peso} Kg</span>`
+        } else {
+            tela.innerHTML = `<span style="color: red">Alguém precisa descer. Precisa perder ${peso - 500} Kg para o elevador se mover</span>`
+        }
+    }
+</script>

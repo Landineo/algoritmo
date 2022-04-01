@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio6</title>
+</head>
+
+<body>
+    <p>Insira seu nome: <input type="text" id="nome" placeholder="Ex: Maria"></p>
+    <p>Insira a quantidade de aulas: <input type="text" id="qtdaula" placeholder="Ex: 180"></p>
+    <p>Insira a quantidade de faltas: <input type="text" id="qtdfaltas" placeholder="Ex: 15"></p>
+    <p><button onclick="mostrar()">Calcular frequencia</button></p>
+    <p id="tela"></p>
+    <p id="barra" style="background-color: crimson;height: 20px; display: none;"></p>
+</body>
+</html>
+<script>
+    function mostrar() {
+        var pfalta = Number(qtdaula.value) - Number(qtdfaltas.value);
+        var freq = (pfalta / qtdaula.value) * 100;
+        tela.innerHTML = `<span style="color: blue">Olá ${nome.value}! A sua frequência é de <b style="color: green;">${freq}%</b></span>`;
+        barra.style.width = `${freq}%`;
+        barra.style.display = 'block';
+    }
+</script>

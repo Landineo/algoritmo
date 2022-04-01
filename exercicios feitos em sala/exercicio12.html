@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio12</title>
+</head>
+
+<body>
+    <p>Quantas horas de sono você teve?<br>
+        <input type="text" id="hrsono" placeholder="ex: 8">
+    </p>
+    <p><button onclick="mostrar()">Calcular sono</button></p>
+    <p id="tela"></p>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        tela.innerHTML = `Ao dormir ${hrsono.value} horas, você dormiu: <br>
+            ${hrsono.value * 0.05} horas na fase 1 <br>
+            ${hrsono.value * 0.45} horas na fase 2 <br>
+            ${hrsono.value * 0.30} horas na fase 3 <br>
+            ${hrsono.value * 0.20} horas na fase REM`
+    }
+</script>

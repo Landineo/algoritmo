@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+
+<body>
+    <h2> Quanto você pode salvar de água com nossos serviços?</h2>
+    <p>Quanto de água você gasta por mês?
+        <!-- definindo a input -->
+        <input id="ipt_hec" type="text" placeholder="ex: 60000">
+    </p>
+    <!-- criando o botão e nomeando função -->
+    <p><button onclick="agua()">Clique aqui para calcular</button></p>
+    <!-- div criada para inserção do innerHTML da função -->
+    <div id="escrita"></div>
+</body>
+
+</html>
+<script>
+    // criando função
+    function agua() {
+        // criando variável para deixar codigo com visualização melhor
+        var hectare = Number(ipt_hec.value) * 0.85
+        // foi utilizado innerHTML para deixar o site m
+        escrita.innerHTML = `Atualmente você gasta R$${ipt_hec.value} de água por mês, com nossos serviços, nós conseguimos reduzir cerca de 15%, fazendo assim você gastar somente R$${hectare.toFixed(2)}`
+    }
+</script>

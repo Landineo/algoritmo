@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Calcule o ki dos guerreiros Sayajins!</h2>
+    <p>Qual o nome do guerreiro Sayajin?<br>
+    <input type="text" placeholder="Qual nome" id="nome"></p>
+    <p>Quanto de Ki ele possui normalmente?<br>
+    <input type="text" placeholder="Quantidade ki" id="ki"></p>
+    <button onclick="ki1()">Ki para forma Super Sayajin</button>
+    <button onclick="ki2()">Ki para forma Super Sayajin 2</button>
+</body>
+
+</html>
+<script>
+    function ki1() {
+        alert(`O Ki de ${nome.value} na forma de Super Sayajin é de ${ki.value * 50}`)
+    }
+    function ki2() {
+        alert(`O Ki de ${nome.value} na forma de Super Sayajin 2 é de ${ki.value * 100}`)
+    }
+</script>

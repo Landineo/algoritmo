@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 20</title>
+</head>
+
+<body>
+    <p>Insira seu salário: <input type="text" id="iptSal"></p>
+    <p>
+        <button onclick="confirmSal()">Confirmar salário</button>
+        <button onclick="conta100()">Pagar conta de 100</button>
+        <button onclick="conta500()">Pagar conta de 500</button>
+        <button onclick="loteria()">Ganhar 2000 na loteria</button>
+    </p>
+    <p id="tela"></p>
+</body>
+
+</html>
+
+<script>
+    var salario = 0
+    function confirmSal() {
+        salario = Number(iptSal.value);
+        tela.innerHTML = `Grana atual: R$${salario.toFixed(2)}`
+    }
+    function conta100() {
+        salario = salario - 100;
+        tela.innerHTML = `Grana atual: R$${salario.toFixed(2)}`
+    }
+    function conta500() {
+        salario = salario - 500;
+        tela.innerHTML = `Grana atual: R$${salario.toFixed(2)}`
+    }
+    function loteria() {
+        salario = salario + 2000;
+        tela.innerHTML = `Grana atual: R$${salario.toFixed(2)}`
+    }
+</script>

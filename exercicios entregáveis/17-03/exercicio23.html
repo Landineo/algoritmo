@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 23</title>
+</head>
+<body>
+<img src="https://www.tenhomaisdiscosqueamigos.com/wp-content/uploads/2020/10/joji-nectar-capa.jpg" style="height: 150px" onclick="voto1()">
+<p id="vt1">Votos: 0</p>
+<img src="https://i.ytimg.com/vi/E1iwrfgNOUU/maxresdefault.jpg" style="height: 150px"  onclick="voto2()">
+<p id="vt2">Votos: 0</p>
+<p id="vtTotal">Total de votos: 0</p>
+</body>
+</html>
+<script>
+    var votoJoji = 0;
+    var votoPinkguy = 0;
+    var totalVotos = 0;
+    function voto1(){
+        votoJoji++
+        totalVotos++
+        vt1.innerHTML = `Votos: ${votoJoji}`
+        vtTotal.innerHTML = `Total de votos: ${totalVotos}`
+    };
+    function voto2(){
+        votoPinkguy++
+        totalVotos++
+        vt2.innerHTML = `Votos: ${votoPinkguy}`
+        vtTotal.innerHTML = `Total de votos: ${totalVotos}`
+    };
+</script>

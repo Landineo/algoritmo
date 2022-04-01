@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+
+<body>
+    <p> Deposite um valor no cofrinho
+        <select id="moeda">
+            <option value="">Selecione um valor</option>
+            <option value="0.5">R$0,50</option>
+            <option value="5">R$5,00</option>
+            <option value="10">R$10,00</option>
+            <option value="50">R$50,00</option>
+            <option value="100">R$100,00</option>
+        </select>
+    </p>
+    <p id="tela">
+        •“O saldo do cofrinho é de: R$ 0.00”<br>
+        •“A quantidade de operações foi: 0”<br>
+        •“Média dos depósitos: R$ 0.00”
+    </p>
+
+    <p>
+        <button onclick="deposito()">Depositar</button>
+    </p>
+    <p>
+        <button onclick="zerar()">Gastar a grana</button>
+    </p>
+</body>
+
+</html>
+<script>
+    var contador = 0;
+    var somatória = 0;
+    var cofre = 0;
+    var media = 0;
+    function deposito() {
+        contador++
+        cofre = cofre + Number(moeda.value)
+        media = cofre/contador;
+        tela.innerHTML = `
+        •“O saldo do cofrinho é de: R$ ${cofre.toFixed(2)}”<br>
+        •“A quantidade de operações foi: ${contador}”<br>
+        •“Média dos depósitos: R$ ${media.toFixed(2)}”
+        `
+    }
+    function zerar() {
+        contador = contador - contador;
+        cofre = cofre - cofre;
+        media = media - media;
+        tela.innerHTML = `
+        •“O saldo do cofrinho é de: R$ ${cofre.toFixed(2)}”<br>
+        •“A quantidade de operações foi: ${contador}”<br>
+        •“Média dos depósitos: R$ ${media.toFixed(2)}”
+        `
+    }
+</script>

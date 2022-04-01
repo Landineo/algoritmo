@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body><p>
+    Qual valor da passagem?<br>
+    <input type="text" placeholder="Qual valor?" id="passagem"></p>
+    <p>Quantas viagens por mês?<br>
+    <input type="text" placeholder="Quantas vezes/mês?" id="viagem"></p>
+    <button onclick="mostrar()">Ver economia</button>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        alert(`Você economizará R$${(viagem.value * passagem.value)/2} por mês`)
+    }
+</script>

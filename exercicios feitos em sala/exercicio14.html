@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio13</title>
+</head>
+<body>
+    <p>Insira a quantidade de votos para Zé Ruela:<br><input type="text" id="vt1"></p>
+    <p>Insira a quantidade de votos para Maria Bigodenha:<br><input type="text" id="vt2"></p>
+    <p>Insira a quantidade de votos Nulos:<br><input type="text" id="vt3"></p>
+    <p>Insira a quantidade de votos Brancos:<br><input type="text" id="vt4"></p>
+    <p><button onclick="mostrar()">Calcular resultado</button></p>
+    <p id="tela"></p>
+</body>
+</html>
+<script>
+    function mostrar() {
+        var ttlVotos = Number(vt1.value)+Number(vt2.value)+Number(vt3.value)+Number(vt4.value);
+        var porcZe = (Number(vt1.value)/ttlVotos)*100;
+        var porcMaria = (Number(vt2.value)/ttlVotos)*100;
+        var somaInv = Number(vt3.value)+Number(vt4.value);
+        var porcInv = (somaInv/ttlVotos)*100;
+        tela.innerHTML=`<div>Total de votos: ${ttlVotos} <br>
+            Zé Ruela: ${porcZe.toFixed(2)}% (${vt1.value} votos) <br>
+            <p id="zeruela" style="background-color:green; height:30px;"></p>
+            Maria Bigodenha: ${porcMaria.toFixed(2)}% (${vt2.value} votos) <br>
+            <p id="mariabigodenha" style="background-color:red; height:30px;"></p>
+            Inválidos: ${porcInv.toFixed(2)}% (${somaInv} votos)
+            <p id="invalidos" style="background-color:gray; height:30px;"></p></div>`;
+        zeruela.style.width=`${porcZe}%`
+        mariabigodenha.style.width=`${porcMaria}%`
+        invalidos.style.width=`${porcInv}%`
+    }
+</script>

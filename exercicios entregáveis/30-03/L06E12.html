@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+</head>
+
+<body>
+    <div>Insira a quantidade de filhos: <br>
+        <input type="text" id="qtdFilho">
+    </div>
+    <div>
+        <button onclick="mostrar()">Analisar família</button>
+    </div>
+    <p id="tela"></p>
+</body>
+
+</html>
+<script>
+    var filho = 0;
+    function mostrar(){
+        filho = qtdFilho.value;
+        if (filho >= 1) {
+            tela.innerHTML = `Não tem tv <br>`
+        } if (filho >= 2) {
+            tela.innerHTML += `Não tem internet <br>`
+        } if (filho >= 3) {
+            tela.innerHTML += `Não tem video game <br>`
+        } if (filho >= 4) {
+            tela.innerHTML += `Não tem Netflix <br>`
+        }
+    }
+</script>
