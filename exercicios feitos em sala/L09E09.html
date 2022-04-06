@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+
+<body>
+    <p><p>Insira seu login:</p>
+        <input type="text" id="ipt_login">
+    </p>
+    <p><p>Insira sua senha:</p>
+        <input type="password" id="ipt_senha">
+    </p>
+    <p><p>Insira o código de segurança:</p>
+        <input type="text" id="codseguranca">
+    </p>
+    <p>
+        <button onclick="logar()">Entrar</button>
+    </p>
+</body>
+
+</html>
+<script>
+    function logar() {
+        var log = ipt_login.value;
+        var pas = ipt_senha.value;
+        var cod = codseguranca.value;
+        if (log == "SPTech" && pas == "digital" && cod == "123") {
+            alert(`Usuário autenticado com sucesso`)
+        } else {
+            alert (`Falha na autenticação`)
+        }
+    }
+</script>
