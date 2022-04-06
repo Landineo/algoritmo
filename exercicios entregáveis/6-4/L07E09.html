@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+    <style>
+        img {
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <select id="slt_especie" onchange="funcEspecie()">
+            <option value="0">---Selecione uma opção---</option>
+            <option value="1">Mamífero</option>
+            <option value="2">Ovíparo</option>
+        </select>
+    </p>
+    <p id="slt_mamifero" style="display: none;">
+        <select id="sltMamifero" onchange="funcMamifero()">
+            <option value="0">- Selecione um Mamífero -</option>
+            <option value="1">Elefante</option>
+            <option value="2">Porco</option>
+            <option value="3">Coelho</option>
+        </select>
+    <p id="cmp_mamifero" style="display: none;"> Insira o valor de compra do animal: <br>
+        <input type="text" id="vlrCompraMam">
+    </p>
+    </p>
+    <p id="slt_oviparo" style="display: none;">
+        <select id="sltOviparo" onchange="funcOviparo()">
+            <option value="0">- Selecione um Ovíparo -</option>
+            <option value="1">Galinha</option>
+            <option value="2">Peixe</option>
+            <option value="3">Tartaruga</option>
+        </select>
+    <p id="cmp_oviparo" style="display: none;"> Insira o valor de compra do animal: <br>
+        <input type="text" id="vlrCompraOvi">
+    </p>
+    </p>
+    <p id="imagem"></p>
+    <p>
+        <button onclick="calcular()">Calcular imposto</button><button onclick="resetar()">Limpar carrinho</button>
+    </p>
+    <p id="tela"></p>
+</body>
+
+</html>
+<script>
+    var especie = 0;
+    var mamifero = 0;
+    var oviparo = 0;
+    var imposto = 0;
+    var valor = 0;
+
+    function funcEspecie() {
+        especie = slt_especie.value;
+        mamifero = sltMamifero.value;
+        oviparo = sltOviparo.value;
+
+        if (especie == 0) {
+            slt_oviparo.style.display = `none`
+            slt_mamifero.style.display = `none`
+            cmp_mamifero.style.display = `none`
+            cmp_oviparo.style.display = `none`
+            imagem.innerHTML = ``
+            tela.innerHTML = ``
+        } if (especie == 1) {
+            slt_mamifero.style.display = `block`
+            slt_oviparo.style.display = `none`
+            cmp_mamifero.style.display = `block`
+            cmp_oviparo.style.display = `none`
+        } if (especie == 2) {
+            slt_oviparo.style.display = `block`
+            slt_mamifero.style.display = `none`
+            cmp_mamifero.style.display = `none`
+            cmp_oviparo.style.display = `block`
+        }
+    }
+
+    function funcMamifero() {
+        especie = slt_especie.value;
+        mamifero = sltMamifero.value;
+        oviparo = sltOviparo.value;
+
+        if (mamifero == 0) {
+            imagem.innerHTML = ``
+            tela.innerHTML = ``
+        } if (mamifero == 1) {
+            imagem.innerHTML = `<img src="https://www.petz.com.br/blog/wp-content/uploads/2022/03/quanto-pesa-um-elefante3.jpg">`
+        } if (mamifero == 2) {
+            imagem.innerHTML = `<img src="https://s2.glbimg.com/XmF47HWckHfCwLS37Qb9L_WJbU8=/e.glbimg.com/og/ed/f/original/2019/03/14/animal-animal-photography-macro-110820.jpg">`
+        } if (mamifero == 3) {
+            imagem.innerHTML = `<img src="https://blog.cobasi.com.br/wp-content/webpc-passthru.php?src=https://blog.cobasi.com.br/wp-content/uploads/2021/01/mini-coelho-meio-1.png&nocache=1">`
+        }
+    }
+
+    function funcOviparo() {
+        especie = slt_especie.value;
+        mamifero = sltMamifero.value;
+        oviparo = sltOviparo.value;
+
+        if (oviparo == 0) {
+            imagem.innerHTML = ``
+            tela.innerHTML = ``
+        } if (oviparo == 1) {
+            imagem.innerHTML = `<img src="https://opresenterural.com.br/wp-content/uploads/2021/06/VACCINAR-FOTO-GALINHA-POEDEIRA-VACCINAR-DIVULGAÇÃO-2021-e1623170813779.jpg">`
+        } if (oviparo == 2) {
+            imagem.innerHTML = `<img src="https://blog.pescagerais.com.br/wp-content/uploads/2020/12/peixe-pargo-pagrus-pagrus.jpg">`
+        } if (oviparo == 3) {
+            imagem.innerHTML = `<img src="https://super.abril.com.br/wp-content/uploads/2021/08/Pela-primeira-vez-cientistas-gravam-uma-tartaruga-cacando.-Veja-o-video.jpg">`
+        }
+    }
+
+    function calcular() {
+        valorMam = vlrCompraMam.value;
+        valorOvi = vlrCompraOvi.value;
+        imposto = imposto + Number(valorOvi*0.05) + Number(valorMam*0.1);
+        tela.innerHTML = `O imposto será de R$${imposto}`
+    }
+    function resetar() {
+        imposto = 0;
+        tela.innerHTML = `Carrinho limpo!`
+    }
+</script>
