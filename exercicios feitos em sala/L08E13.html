@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 13</title>
+  </head>
+
+  <body>
+    <p id="tela">Valor guardado: R$0.00</p>
+    <p>
+      <button onclick="cincao()">Guardar R$5,00</button>
+      <button onclick="dezao()">Gastar R$10,00</button>
+    </p>
+    <p id="tela2" style="color: blue">Finanças OK!</p>
+  </body>
+</html>
+<script>
+  valor = 0;
+
+  function cincao() {
+    valor = valor + 5;
+    tela.innerHTML = `Valor guardado: R$${valor.toFixed(2)}`;
+    if (valor <= 99) {
+      tela2.innerHTML = `Finanças OK!`;
+      tela2.style.color = "blue";
+    } else if (valor >= 100) {
+      tela2.innerHTML = "Finanças OK!<br>#ostentação";
+    } else if (valor < 0) {
+      tela2.innerHTML = "Finanças em PERIGO!";
+      tela2.style.color = "red";
+    } else if (valor <= -20) {
+      tela2.innerHTML = "Quase um Corinthians!";
+      tela2.style.color = "red";
+    }
+  }
+  function dezao() {
+    valor = valor - 10;
+    tela.innerHTML = `Valor guardado: R$${valor.toFixed(2)}`;
+    if (valor <= 99) {
+      tela2.innerHTML = `Finanças OK!`;
+      tela2.style.color = "blue";
+    } else if (valor > -20) {
+      tela2.innerHTML = "Finanças em PERIGO!";
+      tela2.style.color = "red";
+    } else if (valor <= -20) {
+      tela2.innerHTML = "Quase um Corinthians!";
+      tela2.style.color = "red";
+    } else if (valor >= 100) {
+      tela2.innerHTML = "Finanças OK!<br>#ostentação";
+      tela2.style.color = "blue"
+    }
+  }
+</script>

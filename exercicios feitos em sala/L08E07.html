@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 7</title>
+  </head>
+
+  <body>
+    <p>
+      <input type="text" id="vlrEconomia" />
+    </p>
+    <p>
+      <button onclick="mostrar()">Poder de compra</button>
+    </p>
+    <p id="tela"></p>
+  </body>
+</html>
+<script>
+    function mostrar() {
+        var valor = vlrEconomia.value;
+        if (valor <= 0) {
+            tela.innerHTML = `Nada de compras :(`
+        } else if (valor <= 100) {
+            tela.innerHTML = `Viagem de ida e volta pra Praia Grande<br>`
+        } else if (valor <= 4000) {
+            tela.innerHTML += `Uma boa moto usada<br>`
+        } else if (valor > 4000) {
+            tela.innerHTML += `Mais alguma bobagem legal`
+        }
+    }
+</script>

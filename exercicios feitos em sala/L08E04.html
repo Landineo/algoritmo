@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 4</title>
+  </head>
+
+  <body>
+    <p> Insira o peso da criança em KG: <br>
+      <input type="text" id="pesoCrianca">
+    </p>
+    <p>
+      <button onclick="mostrar()">Calcular peso</button>
+    </p>
+    <p id="tela"></p>
+  </body>
+</html>
+<script>
+    function mostrar() {
+        var peso = pesoCrianca.value;
+        if (peso < 0) {
+            alert("Peso inválido")
+        } else if (peso < 13.5) {
+            tela.innerHTML = `Abaixo do peso`
+        } else if (peso == 18.3) {
+            tela.innerHTML = `Peso perfeito!`
+        } else if (peso <= 21.2) {
+            tela.innerHTML = `Peso na média`
+        } else if (peso > 21.2) {
+            tela.innerHTML = `Acima do peso`
+        }
+    }
+</script>
