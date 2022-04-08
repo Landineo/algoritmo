@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    <p>
+        <select name="" id="formaPagamento">
+            <option value="0">--Selecione uma opção--</option>
+            <option value="1">Boleto</option>
+            <option value="2">Cartão de Crédito</option>
+            <option value="3">Cartão de Débito</option>
+            <option value="4">Dinheiro</option>
+        </select>
+    </p>
+    <p><button onclick="mostrar()">Analisar compra</button></p>
+    <p id="tela"></p>
+</body>
+</html>
+<script>
+    function mostrar() {
+        var tipo = formaPagamento.value;
+        if (tipo == 2 || tipo == 4) {
+            tela.innerHTML = `Você terá que pagar à vista!`
+        } else if (tipo == 1 || tipo == 3) {
+            tela.innerHTML = `Pagamento poderá ser parcelado!`
+        }
+    }
+</script>
