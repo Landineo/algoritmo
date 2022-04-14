@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 14</title>
+</head>
+
+<body>
+    <h2>PROCESSO DE SELEÇÃO DE ATLETAS</h2>
+    <p>
+        <input id="ipt_nome" placeholder="Ex: Maria">
+    </p>
+    <p>
+        <input id="ipt_altura" placeholder="Ex: 1.88">
+    </p>
+    <p>
+        <select id="select_selecao">
+            <option value="">--Selecione uma opção--</option>
+            <option value="1"> Piloto </option>
+            <option value="2"> Jogador de Basquete </option>
+        </select>
+    </p>
+    <p>
+        <button onclick="mostrar()"></button>
+    </p>
+    <p id="tela"></p>
+</body>
+
+</html>
+
+<script>
+    var altura = 0;
+    var nome = 0;
+    var selecao = 0;
+
+    function mostrar() {
+
+        altura = ipt_altura.value;
+        nome = ipt_nome.value;
+        selecao = select_selecao.value;
+
+        {
+
+            if (selecao == 1) {
+
+                if (altura >= 1.50 && altura <= 1.65) {
+                    tela.innerHTML += `O candidato ${nome} com altura de ${altura} participará do processo de seleção de piloto <br>`
+
+                } else {
+                    tela.innerHTML += `Infelizmente o candidato ${nome} com altura de ${altura} não atende os requisitos <br>`
+                }
+            }
+            if (selecao == 2) {
+
+                if (altura >= 1.80 && altura <= 2.00) {
+                    tela.innerHTML += `O candidato ${nome} com altura de ${altura} participará do processo de jogador de basquete <br>`
+
+                } else {
+                    tela.innerHTML += `Infelizmente o candidato ${nome} com altura de ${altura} não atende os requisitos <br>`
+                }
+
+
+            }
+        }
+    }
+
+
+</script>
