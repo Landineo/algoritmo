@@ -1,90 +1,49 @@
 <!DOCTYPE html>
-
 <html lang="pt">
 
-
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Posto</title>
-
 </head>
 
-
-
 <body>
-
     <h2>Posto Estrela - Controle de Vendas</h2>
-
-
-
     <div id="div_abertura" style="display: block;">
-
         <h3>------------------Abertura do Posto------------------</h3>
-
         Entre com o volume de Etanol do tanque:
-
         <input id="ipt_etanol"> <br>
-
         Entre com o volume de Gasolina do tanque:
-
         <input id="ipt_gasolina"> <br>
-
         <button onclick="abrir()">Abrir o Posto</button> <br>
-
         <div id="div_msg_abertura"></div>
-
     </div>
-
-
-
     <div id="div_venda" style="display: none;">
-
         <h3>-------Registro das Operações de venda do turno--------</h3>
-
         Entre com o volume vendido:
-
         <input id="ipt_venda">
-
         Informe o produto vendido:
-
         <select id="sel_produto">
-
             <option value="s">--Selecione--</option>
-
             <option value="e">etanol</option>
-
             <option value="g">gasolina</option>
-
         </select>
-
         <button onclick="registrar()">Registrar a Venda</button>
-
         <button onclick="encerrar()" style="background-color: red;">Encerrar o Turno</button>
-
         <br><br>
-
         <span id="span_msg"></span>
-
     </div>
-
 </body>
 
 </html>
-
 <script>
-    var totalE = 0;
-    var totalG = 0;
-    var venda = 0;
-    var produto = 0;
-    var totalVendaG = 0;
-    var totalVendaE = 0;
+    var totalE = 0; //total no tanque de etanol
+    var totalG = 0; //total no tanque de gasolina
+    var venda = 0; //valor da venda
+    var produto = 0; //tipo de produto
+    var totalVendaG = 0; // total de venda de gasolina
+    var totalVendaE = 0; // total de venda de etanol
     var iG = 0; //contador de compras para gasolina
     var iE = 0; //contador para etanol
     var iT = 0; //contador de todas as vendas
@@ -92,21 +51,21 @@
     function abrir() {
         totalE = Number(ipt_etanol.value)
         totalG = Number(ipt_gasolina.value)
-        if (totalE <= 300) {
+        if (totalE <= 300) { //caso o posto abra com menos de 300L de etanol não é permitido
             div_msg_abertura.innerHTML = `ERRO - Com esse volume de Etanol não dá para abrir o posto`
-        } else if (totalG <= 200) {
+        } else if (totalG <= 200) { //caso o posto abra com menos de 200L de gasolina não é permitido
             div_msg_abertura.innerHTML = `ERRO - Com esse volume de Gasolina não dá para abrir o posto`
-        } else if (totalE > 300 && totalE < 3000) {
+        } else if (totalE > 300 && totalE < 3000) { //caso o posto abra com menos de 3000L de etanol é emitido um aviso
             span_msg.innerHTML = `AVISO - Chame o reabastecimento de Etanol <br>`
             div_abertura.style.display = `none`
             div_venda.style.display = `block`
             span_msg.innerHTML += ``
-        } else if (totalG > 200 && totalG < 2000) {
+        } else if (totalG > 200 && totalG < 2000) { //caso o posto abra com menos de 2000L de gasolina é emitido um aviso
             span_msg.innerHTML += `<br>AVISO - Chame o reabastecimento de Gasolina <br>`
             div_abertura.style.display = `none`
             div_venda.style.display = `block`
             span_msg.innerHTML += ``
-        } else {
+        } else { //caso nenhuma das condições sejam cumpridas, segue o código normalmente
             div_msg_abertura.innerHTML = ``
             span_msg.innerHTML = `<br>`
             div_abertura.style.display = `none`
@@ -116,54 +75,43 @@
     function registrar() {
         venda = Number(ipt_venda.value);
         produto = sel_produto.value;
-        if (produto == "g" && totalG > 0 && totalG >= venda) {
+        if (produto == "g" && totalG > 0 && totalG >= venda) { 
+            //se o produto for gasolina, o tanque não estiver vazio e o valor de venda seja menor que o do tanque
             iT++
             iG++
             totalG -= venda;
             totalVendaG += venda;
             span_msg.innerHTML += `Com a venda de ${venda} de gasolina o saldo no tanque é de ${totalG} <br>`
         } else if (produto == "e" && totalE > 0 && totalE >= venda) {
+            //se o produto for etanol, o tanque não estiver vazio e o valor de venda seja menor que o do tanque
             iT++
             iE++
             totalE -= venda;
             totalVendaE += venda;
             span_msg.innerHTML += `Com a venda de ${venda} de etanol o saldo no tanque é de ${totalE} <br>`
         } else if (totalE < 0 || totalG < 0 || venda > totalG || venda > totalE) {
+            //o valor de venda tem que ser menor que o valor no tanque, caso contrário não passa na confirmação
             span_msg.innerHTML += `Não é possível efetuar a venda solicitada pois o tanque não possui o combustível necessário <br>`
         }
     }
     function encerrar() {
         var turno = 0;
         if ((totalVendaE > 1500 && totalVendaG > 1000) || (totalE < 300 || totalG < 300)) {
+            //definindo se o turno foi bom ou não
             turno = "bom";
         } else {
             turno = "normal";
         }
         span_msg.innerHTML = `<h3>Venda de Etanol</h3> <br> <br>
-
-Saldo de produto no tanque = ${totalE.toFixed(2)} <br> <br>
-
-Volume total vendido = ${totalVendaE.toFixed(2)} <br> <br>
-
-Quantidade de vendas = ${iE} <br> <br>
-
-Média das vendas = ${(totalVendaE/iE).toFixed(1)} <br> <br> <br> <br>
-
-
-
-<h3>Venda de Gasolina</h3> <br> <br>
-
-Saldo de produto no tanque = ${totalG.toFixed(2)} <br> <br>
-
-Volume total vendido = ${totalVendaG.toFixed(2)} <br> <br>
-
-Quantidade de vendas = ${iG} <br> <br>
-
-Média das vendas = ${(totalVendaG/iG).toFixed(1)} <br> <br> <br> <br>
-
-
-
-O turno hoje foi ${turno}`
+        Saldo de produto no tanque = ${totalE.toFixed(2)} <br> <br>
+        Volume total vendido = ${totalVendaE.toFixed(2)} <br> <br>
+        Quantidade de vendas = ${iE} <br> <br>
+        Média das vendas = ${(totalVendaE / iE).toFixed(1)} <br> <br> <br> <br>
+        <h3>Venda de Gasolina</h3> <br> <br>
+        Saldo de produto no tanque = ${totalG.toFixed(2)} <br> <br>
+        Volume total vendido = ${totalVendaG.toFixed(2)} <br> <br>
+        Quantidade de vendas = ${iG} <br> <br>
+        Média das vendas = ${(totalVendaG / iG).toFixed(1)} <br> <br> <br> <br>
+        O turno hoje foi ${turno}`
     }
-
 </script>
