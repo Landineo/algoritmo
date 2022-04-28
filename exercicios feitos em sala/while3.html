@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <p> Insira um mínimo:
+            <input type="text" onkeyup="mostrar()" id="numI" autofocus>
+        </p>
+        <p> Insira um máximo:
+            <input type="text" onkeyup="mostrar()" id="numSup">
+        </p>
+        <p id="tela"></p>
+    </center>
+</body>
+
+</html>
+<script>
+    tela.innerHTML = ``
+    const delay = async t => new Promise(resolve => setTimeout(resolve, t));
+    async function mostrar() {
+        var num = Number(numSup.value);
+        var i = Number(numI.value);
+        if (i == `` || num == ``) {
+            tela.innerHTML = `Digite em ambos os campos`
+        } else {
+            if (num <= i) {
+                tela.innerHTML = `Assim não dá né, coloque um número maior que ${i}`
+            } else {
+                tela.innerHTML = ``
+                while (i <= num) {
+                    tela.innerHTML += `${i}<br>`
+                    i++
+                    await delay(15)
+                }
+            }
+        }
+    }
+</script>

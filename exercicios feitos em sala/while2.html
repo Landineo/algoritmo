@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p> Insira um número:
+        <input type="text" onkeyup="mostrar()" id="numSup" autofocus>
+    </p>
+    <p id="tela"></p>
+</body>
+
+</html>
+<script>
+    tela.innerHTML = ``
+    function mostrar() {
+        var num = Number(numSup.value);
+        var i = 4;
+        if (num <= i) {
+            tela.innerHTML = `Assim não dá né, coloque um número menor que 5`
+        } else {
+            tela.innerHTML = ``
+            while (i < num) {
+                i++
+                tela.innerHTML += `${i}<br>`
+            }
+        }
+    }
+</script>
