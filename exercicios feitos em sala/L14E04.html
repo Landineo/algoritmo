@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <button onclick="mostrar()">S2 Pares</button>
+    <p id="tela"></p>
+</body>
+</html>
+<script>
+    const delay = async t => new Promise(resolve => setTimeout(resolve, t));
+    async function mostrar() {
+        var i = 0;
+        while (i<100) {
+            i++;
+            tela.innerHTML += i + "<br>";
+            await delay(20);
+        }
+    }
+</script>

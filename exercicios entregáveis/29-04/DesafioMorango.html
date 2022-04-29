@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hideo Morangos</title>
+</head>
+
+<body>
+    <div id="cont">
+        <p> Insira a quantidade de caixas de morangos:
+            <input type="text" id="qtdMorango">
+        </p>
+        <p>
+            <button onclick="abrir()">Abrir a Loja</button>
+        </p>
+    </div>
+    <div id="cont2" style="display: none;">
+        Insira a quantidade de caixas de morango a serem vendidas:
+        <p>
+            <input type="text" id="vendaMorango">
+        </p>
+        Coloque o preço:
+        <p>
+            <input type="text" id="rgePreco">
+            <span id="erroIpt"></span>
+        </p>
+        <p>
+            <button onclick="vendas()">Registrar venda</button>
+            <button onclick="encerrar()">Encerrar as vendas</button>
+        </p>
+        <p id="telaVenda"></p>
+    </div>
+    <p id="telaErro"></p>
+</body>
+
+</html>
+<script>
+    var qtd = 0;
+    var qtdV = 0;
+    var qtdvenda = 0;
+    var venda = 0;
+    var iM = 0;
+    var preco = 0;
+    var precoVendasTotal = 0;
+    var valorMedio = 0;
+    var maiorVenda = 0;
+    var maiorPrecoVenda = 0;
+
+    function abrir() {
+        qtd = Number(qtdMorango.value);
+        qtdV = qtd;
+        if (qtd <= 100) {
+            telaErro.innerHTML = `ERRO - Com esse número de caixas não dá pra abrir a loja`;
+        } else if (qtd > 2000) {
+            telaErro.innerHTML = `Tudo isso??? Verifique se a quantidade está correta`;
+        } else {
+            telaErro.innerHTML = ``;
+            cont.style.display = "none";
+            cont2.style.display = `block`;
+        }
+    }
+    function vendas() {
+        venda = Number(vendaMorango.value);
+        preco = Number(rgePreco.value)
+        if (venda > qtd || qtd == 0 || venda < 0) {
+            telaVenda.innerHTML = `Não é possível efetuar essa venda`;
+        } else {
+            if (maiorVenda < venda) {
+                maiorVenda = venda;
+            }
+            if (maiorPrecoVenda < preco) {
+                maiorPrecoVenda = preco * venda;
+            }
+
+            if (venda > 0 && venda <= 20) {
+                if (preco >= 5 && preco <= 6) {
+                    qtd -= venda;
+                    qtdvenda += venda;
+                    precoVendasTotal += preco;
+                    iM++;
+                    telaVenda.innerHTML += `Com a venda de ${venda} caixas a quantidade de caixas de morango restantes é de ${qtd}<br>`;
+                } else {
+                    erroIpt.innerHTML = `Número inválido, coloque um valor entre 5 e 6`
+                }
+            } else if (venda > 20 && venda < 40) {
+                if (preco >= 4.5 && preco <= 5.5) {
+                    qtd -= venda;
+                    qtdvenda += venda;
+                    precoVendasTotal += preco;
+                    iM++;
+                    telaVenda.innerHTML += `Com a venda de ${venda} caixas a quantidade de caixas de morango restantes é de ${qtd}<br>`;
+                } else {
+                    erroIpt.innerHTML = `Número inválido, coloque um valor entre 4.5 e 5.5`
+                }
+            } else if (venda >= 40) {
+                if (preco >= 4 && preco <= 5) {
+                    qtd -= venda;
+                    qtdvenda += venda;
+                    precoVendasTotal += preco;
+                    iM++;
+                    telaVenda.innerHTML += `Com a venda de ${venda} caixas a quantidade de caixas de morango restantes é de ${qtd}<br>`;
+                } else {
+                    erroIpt.innerHTML = `Número inválido, coloque um valor entre 4 e 5`
+                }
+            }
+        }
+    }
+    function encerrar() {
+        var turno = 0;
+        valorMedio = (precoVendasTotal / iM).toFixed(2)
+        precoVendasTotal = precoVendasTotal.toFixed(2)
+        maiorPrecoVenda = maiorPrecoVenda.toFixed(2)
+        if ((precoVendasTotal / iM) >= 5 || (qtdvenda >= 1000 && qtd < 100)) {
+            turno = "bom"
+        } else {
+            turno = "normal"
+        }
+        telaVenda.innerHTML = `Venda de Morangos <br> <br>
+
+Saldo de produto = ${qtd} caixas restantes <br> <br>
+
+Volume total vendido = ${Number(qtdV) - Number(qtd)} caixas <br> <br>
+
+Valor total das vendas = R$ ${precoVendasTotal} <br> <br>
+
+Valor médio das vendas = R$ ${valorMedio} <br> <br> <br> <br>
+
+
+
+O turno hoje foi ${turno} <br> <br> <br> <br>
+
+
+
+O maior volume vendido foi de: ${maiorVenda} <br> <br>
+
+O maior valor de venda foi de R$ ${maiorPrecoVenda}`
+    }
+</script>
