@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise</title>
+</head>
+
+<body>
+    <div>
+        Insira o range mínimo: <br>
+        <input type="number" id="rgeMin">
+    </div>
+    <div>
+        Insira o range máximo: <br>
+        <input type="number" id="rgeMax">
+    </div>
+    <p>
+        <button onclick="analise()">Analisar</button>
+    </p>
+    <p id="tela"></p>
+</body>
+
+</html>
+<script>
+    function analise() {
+        var min = rgeMin.value;
+        var max = rgeMax.value;
+        var i = min; // contador tem que ser igual ao range mínimo
+        var iw = 0;  // contador para verificar quantas vezes foi feita uma operação
+        var iDivPri = 0; // contador de quantas divisões primas foram feitas
+        if (min < 0) {
+            tela.innerHTML = `O range mínimo é inválido, por favor insira algum valor maior ou igual de 0`
+        } else if (max < min) {
+            tela.innerHTML = `O range máximo é inválido, por favor insira algum valor maior que o range mínimo`
+        } else {
+            tela.innerHTML = ``
+            while (i <= max) {
+                iw++
+                if (i == 0) {
+                    tela.innerHTML += `o número ${i} não é divisível`
+                } else {
+                    if (i % 2 == 0) {
+                        tela.innerHTML += `o número ${i} é divisível por 2 `
+                    } if (i % 3 == 0) {
+                        tela.innerHTML += `o número ${i} é divisível por 3 `
+                    } if (i % 5 == 0) {
+                        tela.innerHTML += `o número ${i} é divisível por 5 `
+                    } if (i % 7 == 0) {
+                        tela.innerHTML += `o número ${i} é divisível por 7 `
+                    } if (i % 11 == 0) {
+                        tela.innerHTML += `o número ${i} é divisível por 11 `
+                    } if (i % 13 == 0) {
+                        tela.innerHTML += `o número ${i} é divisível por 13 `
+                    } if (!(i % 2 == 0 || i % 3 == 0 || i % 5 == 0 || i % 7 == 0 || i % 11 == 0 || i % 13 == 0)) {
+                        tela.innerHTML += `o número ${i} não é divisível pelos principais números `
+                    } if (i % 2 == 0 || i % 3 == 0 || i % 5 == 0 || i % 7 == 0 || i % 11 == 0 || i % 13 == 0) {
+                        // confirmação para verificar se o número é divisível por algum primo, caso seja ele adiciona mais um no contador
+                        iDivPri++
+                    }
+                }
+                tela.innerHTML += `<br><br>`
+                i++
+            }
+            tela.innerHTML += `o intervalo de ${min} à ${max} tem ${iw} números, sendo que ${iDivPri} desses são divisíveis por algum número primo`
+        }
+    }
+</script>
