@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 20</title>
+</head>
+
+<body>
+    <div>Insira a quantidade de passagens de onibus:
+        <input type="text" id="onibus">
+    </div>
+    <div>Insira a quantidade de passagens de trem:
+        <input type="text" id="trem">
+    </div>
+    <div>Insira a quantidade de passagens de metro:
+        <input type="text" id="metro">
+    </div>
+    <div>
+        <button onclick="mostrar()">#Partiu Trajeto</button>
+    </div>
+    <p id="tela"></p>
+</body>
+
+</html>
+
+<script>
+    function mostrar() {
+        var io = 1;
+        var it = 1;
+        var im = 1;
+        while (io <= onibus.value) {
+            tela.innerHTML += `<span style="color:red">Pegando o ${io}º buzão</span><br>`
+            io++
+        } 
+        while (it <= trem.value) {
+            tela.innerHTML += `<span style="color:green">Pegando o ${it}º trem</span><br>`
+            it++
+        } 
+        while (im <= metro.value) {
+            tela.innerHTML += `<span style = "color:blue">Pegando o ${im}º metrô</span><br>`
+            im++
+        }
+    }
+</script>

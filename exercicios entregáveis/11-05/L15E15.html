@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 15</title>
+</head>
+
+<body>
+    <div>Insira a quantidade de depósitos:
+        <input type="text" id="qtdDep">
+    </div>
+    <div>Insira o valor dos depósitos:
+        <input type="text" id="vlrDep">
+    </div>
+    <div>
+        <button onclick="mostrar()">Acompanhar grana</button>
+    </div>
+    <p id="tela"></p>
+</body>
+</html>
+<script>
+    var conta = 0;
+    function mostrar() {
+        tela.innerHTML = ``;
+        var qtd = qtdDep.value;
+        var vlr = vlrDep.value;
+        for (var i = 1; i <= qtd; i++) {
+            if (i % 3 == 0) {
+                conta += (Number(vlr) + (Number(vlr) * 50.01));
+            } else {
+                conta += Number(vlr);
+            }
+            tela.innerHTML += `${i}º mês: R$ ${(conta).toFixed(2)}<br>`
+        };
+    }
+</script>

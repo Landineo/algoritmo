@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 20</title>
+</head>
+
+<body>
+    <div>
+        <button onclick="mostrar()">Curto 3 e 5!</button>
+    </div>
+    <p id="tela"></p>
+</body>
+
+</html>
+
+<script>
+    var i = 0;
+    function mostrar() {
+        for (i = 1; i <= 100; i++) {
+
+            if (!(i % 3 == 0) && !(i % 5 == 0)) {
+                tela.innerHTML += `${i}`;
+            } else {
+                if (i % 3 == 0) {
+                    tela.innerHTML += `É TRI!!!`;
+                }
+                if (i % 5 == 0) {
+                    tela.innerHTML += `É PENTA!!!!! `;
+                }
+            }
+            tela.innerHTML += `<br>`;
+        }
+    }
+</script>
