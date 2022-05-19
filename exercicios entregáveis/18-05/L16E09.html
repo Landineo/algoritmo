@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+<body>
+    <div>Insira o nome de um de seus projetos:
+        <input type="text" id="projeto">
+    </div>
+    <div>
+        <button onclick="mostrar()">Registrar projeto</button>
+    </div>
+    <div>
+        <button onclick="projects()">Mostrar projetos</button>
+    </div>
+    <p id="tela"></p>
+</body>
+</html>
+<script>
+    var vector = [];
+    function mostrar() {
+        vector.push(projeto.value);
+        projeto.value = ``;
+        var iv = vector.length;
+        var ip = 0;
+        if (iv>0 && iv <= 4) {
+            ip = "Júnior";
+        } else if (iv > 4 && iv <= 12) {
+            ip = `Pleno desde o projeto ${vector[4]}`
+        } else if (iv > 12) {
+            ip = `Sênior desde o projeto ${vector[12]}`
+        }
+        tela.innerHTML = `Você já fez ${iv} projetos. Por isso você é um profissional ${ip} <br>`;
+    };
+    function projects() {
+        for (var i = vector.length;i>0;i--) {
+            tela.innerHTML += i + ". " + vector[i-1] + '<br>'
+        }
+    }
+</script>

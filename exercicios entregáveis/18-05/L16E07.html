@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+</head>
+
+<body>
+    <div>Insira o nome de um filme:
+        <input type="text" id="filmes">
+    </div>
+    <div>
+        <button onclick="mostrar()">Cadastrar</button>
+    </div>
+    <p id="tela"></p>
+</body>
+
+</html>
+
+<script>
+    var vector = [];
+    function mostrar() {
+        vector.push(filmes.value);
+        filmes.value = ``;
+        tela.innerHTML = ``;
+        for (var i = 0; i < vector.length; i++) {
+            tela.innerHTML += vector[i] + "<br>";
+        };
+    };
+</script>
