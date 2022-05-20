@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Associação SORIT</title>
+</head>
+
+<body>
+    <h2>Escola SORIT</h2>
+    Entre com a idade do aluno: <input id="idade">
+    <button onclick="cadastrar()">Cadastrar</button> <br><br>
+
+    Intervalo de ocorrências para análise
+    <input id="ocorMin"> <input id="ocorMax">
+    <button onclick="ocorrencias()">Analisar Ocorrências</button> <br>
+
+    Intervalo de idades para análise
+    <input id="idadeMin"> <input id="idadeMax">
+    <button onclick="idades()">Analisar Idades</button> <br><br>
+
+    <div id="tela"></div>
+
+</body>
+
+</html>
+
+<script>
+    var vector = []
+    function cadastrar() {
+        if (idade.value != ``) {
+            if (idade.value >= 18 && idade.value < 65) {
+                tela.innerHTML = ``;
+                vector.push(Number(idade.value))
+                for (var i = (vector.length); i > 0; i--) {
+                    tela.innerHTML += `${i}. ${vector[i - 1]} <br>`;
+                };
+
+            } else if (idade.value >= 65 && idade.value < 80) {
+                tela.innerHTML = ``;
+                vector.push(idade.value);
+                alert(`Associação permitida, mas com restrição`);
+                for (var i = (vector.length); i > 0; i--) {
+                    tela.innerHTML += `${i}. ${vector[i - 1]} <br>`;
+                };
+
+            } else if (idade.value >= 80) {
+                alert(`Idade superior à idade permitida`);
+
+            } else {
+                alert(`Idade inferior à idade permitida`);
+
+            };
+        } else {
+            alert(`Insira um valor válido`);
+
+        };
+    };
+
+    function ocorrencias() {
+        if (vector.length == 0) {
+            alert(`Cadastra algum valor antes o bobão`);
+
+        } else {
+            if (ocorMin.value > ocorMax.value) {
+                alert(`Insira um intervalo de ocorrências válido`);
+
+            } else {
+                var menorIdade = 99;
+                var maiorIdade = 0;
+                var qtdIdade = 0;
+                var mediaIdades = 0;
+                var iOcor = ocorMin.value;
+
+                for (var i = (ocorMin.value - 1); i < ocorMax.value; i++) {
+                    if (vector[i] != undefined) {
+                        qtdIdade++;
+                        iOcor++;
+
+                        if (vector[i] < menorIdade) {
+                            menorIdade = vector[i];
+
+                        };
+                        if (vector[i] > maiorIdade) {
+                            maiorIdade = vector[i];
+
+                        };
+                        mediaIdades += vector[i];
+
+                    }
+
+                };
+
+                tela.innerHTML += `
+                <br>Inicial: ${vector[ocorMin.value]}      Final: ${vector[iOcor]} <br><br>
+
+                Resumo do intervalo de ocorrências  <br><br>
+
+                Menor Idade do intervalo: ${menorIdade}  <br><br>
+
+                Maior Idade do intervalo: ${maiorIdade}  <br><br>
+
+                Qtde de idades cadastradas no intervalo: ${qtdIdade}  <br><br> 
+
+                Média das idades do intervalo: ${(mediaIdades / qtdIdade).toFixed(1)} `;
+
+            };
+
+        };
+
+    };
+
+
+    // A parte 3 não ficou funcional, se eu tivesse um pouco mais de tempo conseguiria entregar ela funcionando, inclusive consegui arrumar aquele erro daquela hora que o senhor veio na minha mesa. 
+    // Vou terminar esse exercício em casa por que eu gostei dele!
+    function idades() {
+        if (vector.length == 0) {
+            alert(`Cadastra algum valor antes o bobão`);
+
+        } else {
+            if (idadeMin.value > idadeMax.value) {
+                alert(`Insira um intervalo de idades válido`);
+
+            } else {
+                var menorIdade = 99;
+                var maiorIdade = 0;
+                var qtdIdade = 0;
+                var mediaIdades = 0;
+                var iIdade = idadeMin.value;
+                var primeiro = true;
+                var primeiraOcor = 0;
+                var ultimo = 0;
+
+                for (var i = (vector.indexOf(idadeMin.value - 1)); i < vector.length; i++) {
+                    if (vector[i] != undefined) {
+                        qtdIdade++;
+                        iIdade++;
+
+                        if (primeiro) {
+                            primeiraOcor = vector.indexOf(i);
+                            primeiro = false;
+
+                        };
+                        if (vector[i] < menorIdade) {
+                            menorIdade = vector[i];
+
+                        };
+                        if (vector[i] > maiorIdade) {
+                            maiorIdade = vector[i];
+
+                        };
+                        mediaIdades += vector[i];
+                        ultimo = vector[i];
+
+                    }
+
+                };
+
+                tela.innerHTML += `<br>
+                    Resumo do intervalo de idades  <br> <br>
+
+                    Inicial: ${vector[vector.indexOf(menorIdade)]}      Final: ${vector[vector.indexOf(maiorIdade)]} <br> <br>
+
+                    Menor Idade do intervalo: ${menorIdade}  <br> <br>
+
+                    Maior Idade do intervalo: ${maiorIdade}  <br> <br>
+
+                    Qtde de idades cadastradas no intervalo: ${iIdade} <br> <br> 
+
+                    Média das idades do intervalo: ${(mediaIdades / iIdade).toFixed(1)} <br> <br>
+`
+                    // Primeira ocorrência que atendeu o intervalo: ${}  <br> <br>
+
+                    // Última ocorrência que atendeu o intervalo: ${}`
+
+            }
+        }
+    }
+</script>
