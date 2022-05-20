@@ -12,12 +12,15 @@
     <div>Destino de viagem
         <input type="text" placeholder="ex: São Tomé das Letras" id="viagem" autofocus>
     </div>
+
     <button onclick="adicionar()">Adicionar destino</button>
+
     <div>
         <button onclick="but1()">Primeira viagem</button>
         <button onclick="but2()">Terceira Viagem</button>
         <button onclick="but3()">Última viagem</button>
     </div>
+
     <p id="tela"></p>
 </body>
 
@@ -25,13 +28,16 @@
 
 <script>
     var vector = [];
+
     function adicionar() {
         if (viagem.value != ``) {
+
             vector.push(viagem.value);
-            alert(`Viagem de ${viagem.value} cadastrada com sucesso na `)
             viagem.value = ``
+            
         } 
     }
+
     function but1() {
         if (vector[0] == undefined) {
             tela.innerHTML = `Ainda não fez a primeira viagem`
@@ -39,6 +45,7 @@
             tela.innerHTML = `${vector[0]}`
         }
     }
+
     function but2() {
         if (vector[2] == undefined) {
             tela.innerHTML = `Ainda não fez a terceira viagem`
@@ -46,6 +53,7 @@
             tela.innerHTML = `${vector[2]}`
         }
     }
+
     function but3() {
         if (vector[0] == undefined) {
             tela.innerHTML = `Ainda não fez a primeira viagem`

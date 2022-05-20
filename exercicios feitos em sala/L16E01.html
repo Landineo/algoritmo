@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+
+<body>
+    <div>Insira o nome de uma fruta
+        <input type="text" id="frutas">
+    </div>
+    <div>
+        <button onclick="mostrar()">Pesquisar</button>
+    </div>
+    <p id="tela"></p>
+</body>
+
+</html>
+
+<script>
+
+    var vector = ["banana", "laranja", "lichia", "romã", "kiwi"];
+
+    function mostrar() {
+        
+        var fruta = frutas.value.toLowerCase();
+        var index = vector.indexOf(fruta);
+
+        if (vector[index] != undefined) {
+            tela.innerHTML = `A fruta ${frutas.value} existe na lista`;
+        } else {
+            tela.innerHTML = `A fruta ${frutas.value} NÃO existe na lista`;
+        };
+    }
+</script>
